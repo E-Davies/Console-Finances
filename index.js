@@ -86,4 +86,60 @@ var finances = [
     ['Jan-2017', 138230],
     ['Feb-2017', 671099],
   ];
-  
+
+console.log("Financial Analysis");
+console.log("------------------")
+
+
+// 1. The total number of months included in the dataset.
+
+console.log(`Total Months: ${finances.length}`);
+
+// 2. The net total amount of Profit/Losses over the entire period.
+
+let netTotal = 0;
+
+for (let i = 0; i < finances.length; i++){
+    netTotal += finances[i][1];
+}
+
+console.log(`Net total: $${netTotal}`);
+
+// 3. The average of the changes in Profit/Losses over the entire period. (Average change between months)
+        //You will need to track what the total change in Profit/Losses are from month to month and then find the average.
+        //(Total/(Number of months - 1))
+// 4. The greatest increase in Profit/Losses (date and amount) over the entire period.
+// 5. The greatest decrease in Profit/Losses (date and amount) over the entire period.
+
+let averageMonthlyChange = 0;
+let monthlyChange = 0;
+let greatestIncrease = 0;
+let greatestDecrease = 0;
+let greatestIncreaseMonth ;
+let greatestDecreaseMonth;
+
+for (let i = 1; i < finances.length; i++){
+    monthlyChange = finances[i][1] - finances[i - 1][1];
+    averageMonthlyChange += monthlyChange;
+    
+    if (monthlyChange > greatestIncrease){
+        greatestIncrease = monthlyChange
+        greatestIncreaseMonth = finances[i][0]
+    }
+
+    if (monthlyChange < greatestDecrease){
+        greatestDecrease = monthlyChange
+        greatestDecrease = monthlyChange
+        greatestDecreaseMonth = finances[i][0]
+    }
+}
+
+//sum to work out the average of the monthly profit/losses:
+let averageChange = averageMonthlyChange/(finances.length - 1);
+
+// Providing the answers to console for Q's 3, 4, & 5:
+console.log(`Average Change: $${averageChange.toFixed(2)}`);
+ 
+console.log(`Greatest Increase in Profits/Losses: ${greatestIncreaseMonth} ($${greatestIncrease})`);
+
+console.log(`Greatest Decrease in Profits/Losses: ${greatestDecreaseMonth} ($${greatestDecrease})`);
