@@ -13,7 +13,7 @@ This has been achieved by:
 
 ## Installation
 
-Please use the following link to access the website: https://e-davies.github.io/Console-Finances/
+Please use the following link to access the website: https://e-davies.github.io/console-finances/
 
 ## Usage
 
